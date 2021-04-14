@@ -1,52 +1,41 @@
 package com.qqgg.redisdemo.result;
 
 public class Result<T> {
-    private int code;
-    private String msg;
-    private T data;
 
-    private Result(T data) {        //成功时候调用的构造函数
-        this.code = 0;
-        this.msg = "success";
+    private int code;       //状态码
+    private String msg;     //描述信息
+    private T data;         //数据(成功登录才有数据，异常只有状态码和描述信息)
+
+
+    public Result(int code, String msg) {       //异常的时候调用
+        this.code = code;
+        this.msg = msg;
+    }
+
+    public Result(int code, String msg, T data) {       //成功的时候调用
+        this.code = code;
+        this.msg = msg;
         this.data = data;
-    }
-
-    private Result(CodeMsg cm) {    //失败的时候调用的构造函数
-        if (cm == null) {
-            return;
-        }
-        this.code = cm.getCode();
-        this.msg = cm.getMsg();
-    }
-
-    //成功时候的调用
-    public static <T> Result<T> success(T data) {
-        return new Result<T>(data);
-    }
-
-    //失败时候的调用
-    public static <T> Result<T> error(CodeMsg cm) {
-        return new Result<T>(cm);
     }
 
     public int getCode() {
         return code;
     }
 
-    public void setCode(int code) {
-        this.code = code;
-    }
-
     public String getMsg() {
         return msg;
     }
 
-    public void setMsg(String msg) {
-        this.msg = msg;
-    }
-
     public T getData() {
         return data;
+    }
+
+    public void setCode(int code) {
+        this.code = code;
+    }
+
+    public void setMsg(String msg) {
+        this.msg = msg;
     }
 
     public void setData(T data) {
