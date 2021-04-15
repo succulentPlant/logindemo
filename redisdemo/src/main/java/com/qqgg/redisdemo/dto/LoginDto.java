@@ -8,10 +8,9 @@ import java.io.Serializable;
 @Data
 public class LoginDto implements Serializable {
 
-    @NotNull
+
     private String username;
 
-    @NotNull
     private String password;
 
 }

@@ -22,4 +22,9 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
     public List<User> list1() {
         return userMapper.selectList1();
     }
+
+    @Override
+    public User checkUserInfo(LoginDto loginDto) {
+        return null;
+    }
 }

@@ -19,13 +19,13 @@ public class LoginExceptionHander {
         return new Result(le.getCode(),le.getMsg());
     }
 
-    /**
-     * 处理所有的异常
-     */
-    @ExceptionHandler(Exception.class)
-    public  Result handException(Exception e){
-        return new ResultUtil.error(e.getMessage());
-    }
+//    /**
+//     * 处理所有的异常
+//     */
+//    @ExceptionHandler(Exception.class)
+//    public  Result handException(Exception e){
+//        return new ResultUtil.error(e.getMessage());
+//    }
 
 
 }
