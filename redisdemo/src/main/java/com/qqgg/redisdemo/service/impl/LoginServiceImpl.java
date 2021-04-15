@@ -7,10 +7,11 @@ import com.qqgg.redisdemo.exception.LoginException;
 import com.qqgg.redisdemo.service.LoginService;
 import com.qqgg.redisdemo.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 
 import static com.qqgg.redisdemo.exception.LoginExceptionStatus.*;
-
+@Service
 public class LoginServiceImpl implements LoginService {
 
     @Autowired
@@ -31,7 +32,7 @@ public class LoginServiceImpl implements LoginService {
           throw new LoginException(USER_NOT_EXIST);
         }
         //密码错误
-        if(loginDto.getPassword() != user.getPassword()){
+        if(!loginDto.getPassword().equals(user.getPassword()) ){
             throw new LoginException(PASSWORD_ERROR);
         }
     }

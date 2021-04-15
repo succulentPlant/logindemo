@@ -12,7 +12,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.function.Function;
 
-@Service
+
 public interface UserService extends IService<User> {
 
     List<User> list1();
